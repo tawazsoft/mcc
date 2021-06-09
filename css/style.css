@@ -992,4 +992,59 @@ table {
     padding-right: 48%;
   }
 }
+
+@media (min-width: 992px) {
+  .banner {
+    height: 100vh;
+  }
+  .banner .text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    top: 11.5%;
+  }
+  .banner .text2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .banner .text2 h1 {
+    font-size: 50px;
+    margin-right: 16%;
+    padding: 30px;
+    margin: 5px auto;
+  }
+  .banner .text2 p {
+    padding: unset;
+  }
+  .about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 90px;
+  }
+  .about .about-text {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .about .about-text p {
+    text-align: left;
+    padding: unset;
+    margin: 20px  unset;
+  }
+}
 /*# sourceMappingURL=style.css.map */

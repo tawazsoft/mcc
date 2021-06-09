@@ -508,3 +508,52 @@
         }
     }
 }
+
+
+@media (min-width: 992px) { 
+
+    .banner{
+
+        height: 100vh;
+
+        .text{
+            display: flex;
+            top: 11.5%;
+        }
+
+        .text2{
+
+            h1{
+                font-size: 50px;
+                margin-right: 16%;
+                padding: 30px;
+                margin: 5px auto;
+        }
+        p{
+            padding: unset;
+           
+        }
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+    .about{
+        display: flex;
+        justify-content: center;
+        padding: 90px;
+
+        .about-text{
+            justify-content: start;
+            align-items: center;
+
+            p{
+                text-align: left;
+                padding: unset;
+                margin: 20px  unset;
+            }
+        }
+    }
+    
+}
