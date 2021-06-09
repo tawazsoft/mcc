@@ -75,9 +75,14 @@ const header=document.querySelector('.header')
 window .onscroll=function(){
     var top= window.scrollY;
     console.log(top);
-    if (top>=100){
+    if (top>=70){
         header.classList.add('active')
     }else{
         header.classList.remove('active')
     }
 }
+
+// const nav = document.querySelector('.toogle');
+// nav.addEventListener('click',(event) => {
+//     nav.classList.toggle('open') ;
+// });

@@ -416,7 +416,7 @@ table {
        appearance: none;
   background: none;
   font-weight: 100;
-  font-size: 12px;
+  font-size: 13px;
   cursor: pointer;
   padding: 5px;
   outline: none;
@@ -514,7 +514,7 @@ table {
 .banner .text {
   position: absolute;
   width: 100%;
-  top: 12.9%;
+  top: 12.7%;
 }
 
 .banner .text h1 {
@@ -693,6 +693,7 @@ table {
   border: none;
   margin: 10px auto;
   width: 100%;
+  color: #FFFFFF;
 }
 
 .contact .contact-form textarea::-webkit-input-placeholder {
@@ -727,6 +728,7 @@ table {
   outline: none;
   border: none;
   border-radius: 4px;
+  color: #FFFFFF;
 }
 
 .contact .contact-form .form2 input::-webkit-input-placeholder {
@@ -834,7 +836,59 @@ table {
   height: 6vh;
 }
 
-@media (min-width: 768px) {
+@media only screen and (max-width: 320px) {
+  .banner .text {
+    top: 16.5%;
+  }
+  .banner .text h1 {
+    font-size: 30px;
+  }
+  .banner .text .b-img {
+    height: 300px;
+    width: 320;
+  }
+  .banner .text .b-img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .portifolio .buttons .button {
+    font-size: 10px;
+  }
+  .service2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .service2 h6 {
+    font-size: 23px;
+  }
+  .service2 ol li {
+    margin: 20px 74px;
+  }
+  .contact .contact-form {
+    padding: 20px;
+  }
+}
+
+@media only screen and (min-width: 414px) {
+  .banner .text {
+    top: 14.9%;
+  }
+  .banner .text h1 {
+    font-size: 39px;
+  }
+}
+
+@media (min-width: 768.5px) {
   .header .sidebar {
     right: -155%;
   }
