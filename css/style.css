@@ -1,0 +1,888 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body, html {
+  line-height: 1;
+  overflow-x: hidden;
+  font-family: 'mon-r';
+  scroll-behavior: smooth;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header {
+  height: 100px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  position: fixed;
+  align-items: center;
+  padding: 10px;
+}
+
+.header .logo {
+  width: 100px;
+  z-index: 1;
+}
+
+.header .t-back {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .t-back h6 {
+  padding-right: 20px;
+  font-size: 19px;
+  color: #fff;
+  font-family: "RedHatDisplay";
+  z-index: 1;
+}
+
+.header .t-back.active {
+  right: 300px;
+  -webkit-transition: .9s;
+  transition: .9s;
+}
+
+.header .toggle {
+  position: relative;
+  z-index: 5;
+  top: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.header .toggle.active {
+  right: 300px;
+  -webkit-transition: .9s;
+  transition: .9s;
+}
+
+.header ul.toggle li {
+  position: absolute;
+  left: 5%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 5px;
+  width: 90%;
+  list-style: none;
+  background: #fff;
+  -webkit-transition: .9s;
+  transition: .9s;
+  top: 50%;
+}
+
+.header ul.toggle li:nth-of-type(1) {
+  width: 90%;
+  top: 20%;
+}
+
+.header ul.toggle li:nth-of-type(3) {
+  width: 90%;
+  top: 80%;
+}
+
+.header ul.toggle.active li:nth-of-type(1) {
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+  width: 100%;
+}
+
+.header ul.toggle.active li:nth-of-type(2) {
+  left: -100%;
+  opacity: 0;
+}
+
+.header ul.toggle.active li:nth-of-type(3) {
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
+  width: 100%;
+  left: 7%;
+}
+
+.header .sidebar {
+  position: absolute;
+  top: 0;
+  right: -443px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 99.5vh;
+  width: 100%;
+  -webkit-transition: .9s;
+  transition: .9s;
+  z-index: 4;
+}
+
+.header .sidebar .menu1 {
+  background: #000;
+  height: 100%;
+  width: 40%;
+}
+
+.header .sidebar .menu {
+  background: #4A2849;
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+}
+
+.header .sidebar .menu img {
+  height: 6vh;
+  width: 60%;
+  margin: 20px;
+}
+
+.header .sidebar .menu p {
+  margin-top: 43px;
+  color: #fff;
+  font-family: "RedHatDisplay";
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.header .sidebar .menu ul {
+  list-style: none;
+}
+
+.header .sidebar .menu ul li {
+  margin: 24px 4px;
+  font-size: 30px;
+  font-family: "RedHatDisplay";
+}
+
+.header .sidebar .menu ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header .sidebar.active {
+  right: 0;
+  width: 100%;
+}
+
+.area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
+  margin: 10px;
+}
+
+#chck1, #chck2, #chck {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.col {
+  margin: 20px auto;
+}
+
+.col p {
+  font-size: 18px;
+  line-height: 1.4;
+  font-family: 'Montserrat Regular';
+}
+
+.col h2 {
+  font-size: 20px;
+  color: #707070;
+  margin: 20px auto;
+  position: relative;
+}
+
+.col h2::after {
+  height: 1px;
+  width: 70px;
+  background: black;
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 4px;
+}
+
+.col h2 span {
+  font-weight: bold;
+  color: black;
+  padding-right: 10px;
+}
+
+.col .tabs {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.col .tabs .tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.col .tabs .tab label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  padding: 1.3em;
+  background: black;
+  font-size: 18px;
+  font-family: 'Montserrat Regular';
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  /* Icon */
+}
+
+.col .tabs .tab label span {
+  margin-right: 20px;
+}
+
+.col .tabs .tab label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  margin-left: auto;
+}
+
+.col .tabs .tab .tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: #2c3e50;
+  background: white;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+  -webkit-box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.col .tabs .tab .tab-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: #2c3e50;
+  cursor: pointer;
+}
+
+.col .tabs .tab .tab-close:hover {
+  background: #1a252f;
+}
+
+.col .tabs .tab input:checked + .tab-label {
+  background: white;
+  color: black;
+}
+
+.col .tabs .tab input:checked + .tab-label::after {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.col .tabs .tab input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
+.portifolio {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  background: #251424;
+  padding: 10px;
+}
+
+.portifolio p {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.portifolio h1 {
+  font-size: 27px;
+  color: #fff;
+  margin: 20px;
+  font-family: "RedHatDisplay";
+  font-weight: 700;
+}
+
+.portifolio .buttons {
+  padding: 33px 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.portifolio .button {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-appearance: none;
+  border-radius: 100px;
+  font-family: inherit;
+  -moz-appearance: none;
+       appearance: none;
+  background: none;
+  font-weight: 100;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+  outline: none;
+  opacity: 0.4;
+  border: none;
+  color: #fff;
+}
+
+.portifolio .button:hover,
+.portifolio .button.active {
+  opacity: 1;
+}
+
+.portifolio .grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.portifolio .item {
+  border-radius: 4px;
+  width: 100%;
+  margin: 10px auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.portifolio .item p {
+  color: #fff;
+  font-family: "RedHatDisplay";
+  font-size: 17px;
+  margin-top: 32px;
+  margin-bottom: 42px;
+}
+
+.portifolio .item a {
+  border: 1px solid white;
+  padding: 15px 35px;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.portifolio .item a:hover {
+  background: white;
+  color: #000;
+}
+
+.portifolio .item img {
+  height: 271px;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.banner {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.banner .color1 {
+  background: #161422;
+  height: 100%;
+  width: 60%;
+  z-index: -1;
+}
+
+.banner .color2 {
+  background: #4A2849;
+  width: 40%;
+  height: 100%;
+  z-index: -1;
+}
+
+.banner .text {
+  position: absolute;
+  width: 100%;
+  top: 20.2%;
+}
+
+.banner .text h1 {
+  font-size: 35px;
+  color: white;
+  font-family: 'RedHatDisplay';
+  line-height: 1.27;
+  font-weight: 300;
+  padding: 14px;
+}
+
+.banner .text p {
+  font-size: 19px;
+  font-family: 'RedHatDisplay';
+  color: white;
+  line-height: 0.4;
+  margin: 20px 10px;
+}
+
+.banner .text .b-img {
+  padding: 0 10px;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.about .about-img {
+  margin: 30px 38px;
+}
+
+.about .about-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about .about-text h2 {
+  font-size: 35px;
+  font-family: "RedHatDisplay";
+  font-weight: 700;
+}
+
+.about .about-text p {
+  font-size: 19px;
+  font-family: "RedHatDisplay";
+  font-weight: 300;
+  line-height: 1.3;
+  margin: 24px 14px;
+  text-align: center;
+  color: #4A2849;
+}
+
+.about .about-text a {
+  padding: 20px 40px;
+  background: #4A2849;
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 50px;
+  text-decoration: none;
+}
+
+.services {
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 27px;
+  font-family: "RedHatDisplay";
+  font-weight: 700;
+  color: #251424;
+  margin: 50px auto;
+}
+
+.services .service-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.services .service-inner .service-img {
+  padding: 20px 16px;
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.service2 {
+  padding: 10px;
+}
+
+.service2 .service2-img {
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.service2 h6 {
+  font-size: 27px;
+  font-family: "RedHatDisplay";
+  font-weight: 600;
+  margin: 20px auto;
+}
+
+.service2 p {
+  font-size: 17px;
+  font-family: "RedHatDisplay";
+  line-height: 1.4;
+  font-weight: 500;
+  text-align: center;
+}
+
+.service2 ol {
+  list-style: disc;
+}
+
+.service2 ol li {
+  margin: 20px 100px;
+  color: #251424;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.contact {
+  background: #161422;
+}
+
+.contact .contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 33px;
+  position: relative;
+}
+
+.contact .contact-form #submit {
+  padding: 10px;
+  background: #4A2849;
+  color: #FFFFFF;
+  border: 1px solid white;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 55px;
+  right: 40px;
+  width: 45%;
+}
+
+.contact .contact-form textarea {
+  background: #4A2849;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.contact .contact-form textarea::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-form textarea:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-form textarea::-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-form textarea::placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-form h2 {
+  font-size: 27px;
+  font-family: 'RedHatDisplay';
+  color: white;
+  font-weight: 700;
+  margin: 15px 10px;
+}
+
+.contact .contact-form .form2 input {
+  width: 100%;
+  background: #4A2849;
+  padding: 10px;
+  margin: 10px auto;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.contact .contact-form .form2 input::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-form .form2 input:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-form .form2 input::-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-form .form2 input::placeholder {
+  color: #FFFFFF;
+}
+
+.contact .contact-inner {
+  padding: 33px;
+}
+
+.contact .contact-inner h2 {
+  font-size: 27px;
+  font-family: 'RedHatDisplay';
+  color: white;
+  font-weight: 700;
+  margin: 15px 10px;
+}
+
+.contact .contact-inner .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact .contact-inner .time span {
+  color: white;
+  font-size: 17px;
+  font-family: "RedHatDisplay";
+  margin: 7px 10px;
+}
+
+.contact .contact-inner .time p {
+  font-size: 17px;
+  font-family: "RedHatDisplay";
+  color: white;
+  line-height: 1.4;
+  margin: 10px 10px;
+  padding-right: 38px;
+}
+
+.contact .contact-inner .contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact .contact-inner .contact-info p {
+  color: white;
+  font-size: 17px;
+  font-family: 'RedHatDisplay';
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.contact .contact-inner .contact-info p span {
+  margin-right: 10px;
+}
+
+.contact .contact-inner .contact-info p i {
+  display: block;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.contact hr {
+  background-color: #FFFFFF;
+  height: 3px;
+  margin: 10px 30px;
+}
+
+.contact .contact-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.contact .contact-logo img {
+  height: 6vh;
+}
+
+@media (min-width: 768px) {
+  .header .sidebar {
+    right: -155%;
+  }
+  .banner .text {
+    padding: 30px;
+    top: 8.2%;
+  }
+  .banner .text p {
+    padding: 50px  0;
+    font-size: 30px;
+  }
+  .banner .text h1 {
+    font-size: 61px;
+    margin-right: 76px;
+  }
+  .banner .text .b-img {
+    height: 579px;
+    width: 694px;
+  }
+  .banner .text .b-img img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .about {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .about .about-text p {
+    font-size: 28px;
+    margin: 24px 16%;
+  }
+  .portifolio {
+    text-align: unset;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .portifolio .buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .portifolio .buttons .button {
+    font-size: 23px;
+    padding: 18px;
+  }
+  .portifolio .grid .item p {
+    margin: 20px 68px;
+    font-size: 28px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
